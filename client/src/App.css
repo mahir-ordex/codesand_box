@@ -90,6 +90,20 @@ body {
 	animation: riseIn 500ms ease-out;
 }
 
+.playground__panel::-webkit-scrollbar {
+	display: none;
+}
+
+.playground__panel {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.playground__panel--editor,
+.playground__panel--output {
+	height: min(66vh, 680px);
+}
+
 .playground__panelTop {
 	display: flex;
 	align-items: center;
@@ -108,7 +122,8 @@ body {
 }
 
 .editorWrap {
-	height: min(66vh, 680px);
+	flex: 1;
+	min-height: 0;
 	overflow: hidden;
 	border-radius: 0 0 18px 18px;
 }
@@ -142,11 +157,19 @@ body {
 .outputView {
 	margin: 0;
 	padding: 18px;
-	min-height: min(66vh, 680px);
+	flex: 1;
+	min-height: 0;
 	white-space: pre-wrap;
 	font: 500 14px/1.55 'IBM Plex Mono', 'Cascadia Code', monospace;
 	color: #def2ff;
 	overflow: auto;
+	overscroll-behavior: contain;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.outputView::-webkit-scrollbar {
+	display: none;
 }
 
 @keyframes riseIn {
@@ -154,6 +177,7 @@ body {
 		opacity: 0;
 		transform: translateY(10px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -171,8 +195,9 @@ body {
 	}
 
 	.editorWrap,
-	.outputView {
-		min-height: 42vh;
+	.outputView,
+	.playground__panel--editor,
+	.playground__panel--output {
 		height: 42vh;
 	}
 }
