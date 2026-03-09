@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import './App.css'
 import { Editor } from '@monaco-editor/react'
-import SEO from './components/Seo';
+import SEO from './components/seo';
 
 function App() {
   const [output, setOutput] = useState('')
