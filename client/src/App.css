@@ -37,7 +37,6 @@ body {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 18px;
-	overflow: hidden;
 }
 
 .playground__backdrop {
@@ -184,20 +183,55 @@ body {
 	}
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
 	.playground {
 		grid-template-columns: 1fr;
-		padding: 14px;
+		grid-template-rows: auto 1fr 1fr;
+		height: 100dvh;
+		min-height: unset;
+		padding: 16px;
+		gap: 14px;
+		overflow: hidden;
+	}
+
+	.playground__header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 4px;
 	}
 
 	.playground__title {
-		font-size: 24px;
+		font-size: clamp(20px, 5vw, 28px);
 	}
 
-	.editorWrap,
-	.outputView,
 	.playground__panel--editor,
 	.playground__panel--output {
-		height: 42vh;
+		height: auto;
+		min-height: 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.playground {
+		padding: 12px;
+		gap: 10px;
+	}
+
+	.playground__panelTop {
+		padding: 10px 12px;
+	}
+
+	.playground__panelTop h2 {
+		font-size: 12px;
+	}
+
+	.runButton {
+		padding: 8px 14px;
+		font-size: 12px;
+	}
+
+	.outputView {
+		font-size: 13px;
+		padding: 12px;
 	}
 }
